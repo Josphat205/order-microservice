@@ -45,8 +45,8 @@ app.get('/order/:id', async(req, res) => {
         if (order == null) {
             return res.status(404).json({ message: 'Order not found!!' });
         }
-        const book = await axios.get(`http://localhost:3000/books/${order.book_id}`);
-        const customer = await axios.get(`http://localhost:4000/customers/${order.customer_id}`);
+        const book = await axios.get(`https://book-service-kn2l.onrender.com/books/${order.book_id}`);
+        const customer = await axios.get(`https://customer-service-w7xa.onrender.com/customers/${order.customer_id}`);
         res.order = {
             _id: order._id,
             book_title: book.data.title,
